@@ -1,0 +1,111 @@
+1 
+# MARK loywong 开关控制 由项目GameSettings面板值决定
+
+# ------------------------------------------ Core 框架
+flow
+
+data
+config
+asset
+
+network
+server
+
+# util
+# ui
+# input
+# camera
+# anim
+# audio
+# effect
+# tips
+
+# test
+
+
+# ------------------------------------------ BIZ 业务 -- 基础
+login
+account
+lobby
+map
+battle
+battleview
+
+
+# ------------------------------------------ BIZ 业务 -- 扩展
+# item
+# sceneobjs
+
+# unit
+# player
+# player_property
+# # player_skin
+# player_copy
+# 
+# # player_move
+# # player_move_detail
+# 
+# # player_move_airmove
+# # player_move_jumpdrop
+# # player_move_state
+# player_move_dash
+# # player_rotate
+# 
+# 
+# skill
+# skillcontainer
+# skill_player
+# skill_state
+# # skill_growth
+# skill_property
+# 
+# skill_bullet
+# 
+# # skill_dash
+# 
+# skill_summon
+# 
+# skill_suicide
+# # skill_death
+# skill_enemy
+# skill_reflect
+# skillForMove
+# 
+# buff
+# bullet
+# 
+# # lockTarget
+# # lockTarget_enrmy
+# # lockTarget_enemy
+# 
+# # nav
+# # pathfinding
+# trigger
+# 
+# enemy
+# enemy_dash
+# enemy_stealth
+# enemy_leg
+# # enemy_move
+# boss
+# trap
+# 
+# drop
+# 
+# # effect
+# 
+# fn_equip
+# fn_equip_combine
+# 
+# equipCombine
+# 
+# NPC
+# Task
+# Bips
+# StoreBag
+# SceneTrap
+# Talent
+# 
+# newerguide
+# 
+# taskguidepath
