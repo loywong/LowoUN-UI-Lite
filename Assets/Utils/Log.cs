@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 只适用于Editor环境下的开发日志输出
-namespace LowoUN.Utils {
+namespace LowoUN.Util {
 	public static class Log {
 		// 是否允许Unity运行时日志
 		static void SetLogEnabled (bool isRuntimeLogEnabled) {

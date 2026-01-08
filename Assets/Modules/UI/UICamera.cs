@@ -1,8 +1,8 @@
-using LowoUN.Utils;
+using LowoUN.Util;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace LowoUN.Modules.UI {
+namespace LowoUN.Module.UI {
     public enum CamRenderType {
         Perspective, //透视
         Orthographic, //正交

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // MARK loywong 当timer生命周期与某个GameObject同步时（即当GameObject生命周期结束时，强制清理其绑定的所有定时器）
-namespace LowoUN.Utils {
+namespace LowoUN.Util {
     public class TimeMgr : SingletonSimple<TimeMgr> {
         // 有效游戏时间，排除了登录，切换场景。
         private float gameTime_cur;

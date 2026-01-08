@@ -1,8 +1,8 @@
-using LowoUN.Utils;
+using LowoUN.Util;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LowoUN.Modules.UI {
+namespace LowoUN.Module.UI {
     public class UIRootView : UIViewBase {
         [Header ("UILayers层")]
         [SerializeField]

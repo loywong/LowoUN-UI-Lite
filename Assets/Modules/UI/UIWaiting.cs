@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LowoUN.Modules.UI {
+namespace LowoUN.Module.UI {
     public class UIWaiting : MonoBehaviour {
         public GameObject waiting4EventMask;
         public GameObject waitingPanel;

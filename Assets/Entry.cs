@@ -1,6 +1,6 @@
 using System.Collections;
-using LowoUN.Modules.UI;
-using LowoUN.Utils;
+using LowoUN.Module.UI;
+using LowoUN.Util;
 using UnityEngine;
 
 public class Entry : MonoBehaviour {
@@ -12,7 +12,7 @@ public class Entry : MonoBehaviour {
         Instance = this;
     }
     void Start () {
-        LowoUN.Utils.Log.Init (true);
+        LowoUN.Util.Log.Init (true);
 
         StartCoroutine (Init ());
     }

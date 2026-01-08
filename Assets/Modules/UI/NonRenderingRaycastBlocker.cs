@@ -1,6 +1,6 @@
 using  UnityEngine.UI;
 
-namespace LowoUN.Modules.UI {
+namespace LowoUN.Module.UI {
 
     public class NonRenderingRaycastBlocker : MaskableGraphic {
         protected NonRenderingRaycastBlocker () {

@@ -1,4 +1,4 @@
-using LowoUN.Modules.UI;
+using LowoUN.Module.UI;
 
 public class UISample_Popup_FullScreen : UIViewBase {
     public override bool IsFullScreen { get => true; }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace LowoUN.Utils {
+namespace LowoUN.Util {
     public enum TimerObjState {
         NONE = 0, // 新建的
         Running,

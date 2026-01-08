@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using LowoUN.Utils;
+using LowoUN.Util;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace LowoUN.Modules.UI {
+namespace LowoUN.Module.UI {
     public enum UICameraType : byte {
         NONE = 0,
         SS_Overlay, // 屏幕空间-覆盖

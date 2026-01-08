@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using LowoUN.Utils;
+using LowoUN.Util;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -8,7 +8,7 @@ using UnityEngine;
 // using UnityEngine.AddressableAssets;
 // using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace LowoUN.Modules.UI {
+namespace LowoUN.Module.UI {
     public class SceneLoadingView : UIViewBase {
         [LabelText ("背景图Layer"), SerializeField] Transform sceneLoad_Layer;
         [LabelText ("动画对象"), SerializeField] GameObject animObj;

@@ -1,8 +1,8 @@
 using System;
-using LowoUN.Utils;
+using LowoUN.Util;
 using UnityEngine;
 
-namespace LowoUN.Modules.UI {
+namespace LowoUN.Module.UI {
     public class UIRootController : SingletonSimple<UIRootController> {
         UIRootView _view;
 

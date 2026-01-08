@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LowoUN.Utils {
+namespace LowoUN.Util {
     public static class Extensions {
         public static bool IsValid (this string str) {
             return !string.IsNullOrEmpty (str);

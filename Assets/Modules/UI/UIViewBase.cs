@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace LowoUN.Modules.UI {
+namespace LowoUN.Module.UI {
     public class UIViewBase : MonoBehaviour { //, IUIView
         public Vector2 safeAreaAndroid_anchorMin;
         public Vector2 safeAreaAndroid_anchorMax;

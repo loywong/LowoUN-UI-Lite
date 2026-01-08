@@ -1,9 +1,9 @@
-using LowoUN.Utils;
+using LowoUN.Util;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace LowoUN.Modules.UI {
+namespace LowoUN.Module.UI {
     public class UIDlg_Check : UIViewBase {
         [SerializeField]
         GameObject con;
