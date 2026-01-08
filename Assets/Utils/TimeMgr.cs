@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// MARK loywong 当timer生命周期与某个GameObject同步时（即当GameObject生命周期结束时，强制清理其绑定的所有定时器）
 namespace LowoUN.Util {
+    // MARK loywong 当timer生命周期与某个GameObject同步时（即当GameObject生命周期结束时，强制清理其绑定的所有定时器）
     public class TimeMgr : SingletonSimple<TimeMgr> {
         // 有效游戏时间，排除了登录，切换场景。
         private float gameTime_cur;
@@ -11,6 +11,7 @@ namespace LowoUN.Util {
         // private float gameTime_start;
         // 真实自然时间 --- 适合用于性能测量和精确计时，比如代码耗时
         // private float gameStartRealTime;
+
         // 真实自然时间 --- 用于做定时恢复数值的情况
         // private float gameRealCurrentTime;
         // 程序自身已持续运行了多长时间（不是真实时间，如果timeScale=0暂停，则不计算在内）
@@ -27,8 +28,6 @@ namespace LowoUN.Util {
         // 开启的
         // TODO loywong 需要绑定一个唯一Key，以便判断是否为曾经使用过的Obj，如果时，则在再次使用前，可选手动强制停止上一个Obj
         private List<TimerObj> startList = new List<TimerObj> ();
-        // // 正常使用完成的
-        // private List<long> timerDoneList = new List<long> ();
         // 主动停止的
         private List<long> stopList = new List<long> ();
 
@@ -40,11 +39,11 @@ namespace LowoUN.Util {
 
         bool isWork;
         public void SetWork () {
-            Log.Print ("TimeMgr SetWork()");
+            Debug.Log ("TimeMgr SetWork()");
             isWork = true;
         }
         public void SetUnWork () {
-            Log.Print ("TimeMgr SetUnWork()");
+            Debug.Log ("TimeMgr SetUnWork()");
             isWork = false;
         }
 
@@ -59,7 +58,6 @@ namespace LowoUN.Util {
 
             // 每一帧临时记录 容器
             startList.Clear ();
-            // timerDoneList.Clear ();
             stopList.Clear ();
 
             // 存储容器
@@ -82,23 +80,17 @@ namespace LowoUN.Util {
 
             // 游戏运行时间，游戏禁止工作和Timescale都不统计
             gameTime_cur += Time.deltaTime; // * Time.timeScale;
-            // //Debug.Log($"{Time.deltaTime} --- {Time.timeScale} -- {gameCurrectTime} -- {Time.realtimeSinceStartup - gameStartClientTime}");
-            // Debug.Log("Update frame");
+            //Debug.Log($"Update frame {Time.deltaTime} --- {Time.timeScale} -- {gameCurrectTime} -- {Time.realtimeSinceStartup - gameStartClientTime}");
             UpdateTimers ();
         }
 
         private void UpdateTimers () {
             if (stopList.Count > 0) {
                 foreach (var stopId in stopList) {
-                    // if (timerMap.ContainsKey(stopId))
-                    //     timerMap[stopId].SetState(TimerObjState.Done);
-                    //     // timerMap.Remove(stopId);
                     if (timerMap.ContainsKey (stopId)) {
                         pool.Push (timerMap[stopId]);
                         timerMap.Remove (stopId);
                     }
-                    // else Debug.LogError($"stopId:{stopId} not in timerMap");
-
                 }
                 stopList.Clear ();
             }
@@ -114,6 +106,12 @@ namespace LowoUN.Util {
                 startList.Clear ();
             }
         }
+
+        // public long StartRealTimer(float time, Action done) {
+        //     long id = ++timerId;
+        //     startList.Add(new TimerObj(id, gameRealCurrentTime + time, done, true));
+        //     return id;
+        // }
 
         // 延迟x时间，执行一次，忽略timeScale
         public long StartTimer_IgnoreTimeScale (float time, Action done, Func<bool> bindCondition = null) {
@@ -147,7 +145,6 @@ namespace LowoUN.Util {
                 tobj.ReInit (timerId, time, done, bindCondition, isFrameType, isIgnoreTimeScale);
             } else {
                 timerId += 1;
-                // long id = ++timerId;
                 // Debug.LogError($"StartTimer -- Create new TimerObj id:{timerId}");
                 tobj = new TimerObj (timerId, time, done, bindCondition, isFrameType, isIgnoreTimeScale);
             }
@@ -159,7 +156,7 @@ namespace LowoUN.Util {
         }
 
         // xxx Id 需要一直更新即可 // MARK loywong 不需要主动停止了，回收之后会给其他事件重复使用，停止会导致逻辑异常
-        // 主动停止 -- 对象是那些 正在工作中的obj
+        // ??? 主动停止 -- 对象是那些 正在工作中的obj
         public void StopTimer (long id) {
             if (id < 1) {
 #if UNITY_EDITOR
@@ -167,7 +164,6 @@ namespace LowoUN.Util {
 #endif
                 return;
             }
-            // stopList.Add(id);
             if (timerMap.ContainsKey (id))
                 timerMap[id].SetState_Stop ();
 #if UNITY_EDITOR
@@ -206,6 +202,8 @@ namespace LowoUN.Util {
 
         public void DoneToRecycle (TimerObj tobj) {
             // Debug.LogError ($"DoneToRecycle id:{tobj.id}");
+            // timerMap.Remove (tobj.id);
+            // pool.Push (tobj);
             stopList.Add (tobj.id);
         }
 
