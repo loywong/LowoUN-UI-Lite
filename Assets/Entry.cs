@@ -32,7 +32,7 @@ public class Entry : MonoBehaviour {
                 // --- top layer (waitingUI, checkDlgUI)
                 // --- middle layer (PopUI)
                 // --- floor layer (HudUI)
-                UIManager.Self.CreateUIViewAsync<UISample_Hud> ("UISample_Hud", uiRoot.FloorLayer);
+                UIManager.Self.CreateUIViewAsync_Hud<UISample_Hud> ("UISample_Hud", UICameraType.SS_Overlay);
                 // UIManager.Self.CreateUIViewAsync<UISample_Popup_FullScreen> ("UISample_Popup_FullScreen", UIManager.Self._camCanvas.transform); //uiRoot.MidLayer
 
                 // 2 camera UI (PopUI)

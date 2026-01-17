@@ -19,9 +19,7 @@ namespace LowoUN.Module.UI {
         [SerializeField]
         [Header ("HUDRoot")]
         Transform hudRoot;
-        // [SerializeField]
-        // [Header("UI背景")]
-        // Image uibg;
+        
         // [SerializeField]
         // [Header("Toast提示信息节点")]
         // GameObject toast;
@@ -49,18 +47,9 @@ namespace LowoUN.Module.UI {
 
         public Transform FloorLayer => floorLayer;
 
-        Transform HUDRoot => hudRoot;
-
-        // Image UIBackground => uibg;
+        public Transform HUDRoot => hudRoot;
 
         public SceneLoadingView SceneLoadingView => sceneLoadingView;
-
-        // protected override void Awake() {
-        //     Facade.Events.AddListener<string>(CustomEvents.CloseView, UIManager.Self.OnCloseView);
-        // }
-        // void OnDestroy() {
-        //     Facade.Events.RemoveListener<string>(CustomEvents.CloseView, UIManager.Self.OnCloseView);
-        // }
 
         void Update () {
             // MARK loywong 禁用 软件侧 退出应用程序的操作界面

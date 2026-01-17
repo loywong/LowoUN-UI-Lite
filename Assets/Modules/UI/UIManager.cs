@@ -23,10 +23,12 @@ namespace LowoUN.Module.UI {
         public void SetWorldCanvas (Canvas can) { _worldCanvas = can; }
 
         public Canvas _screenCanvas;
+        Transform hudLayer;
         Transform floorLayer;
         Transform midLayer;
         Transform topLayer;
-        public Transform ParentLayer_SceneHud => floorLayer;
+        public Transform ParentLayer_SceneHud => hudLayer;
+        public Transform ParentLayer_HudNewAdd => floorLayer;
         public Transform ParentLayer_Popup => midLayer;
         public Transform ParentLayer_GlobalNotice => topLayer;
 
@@ -55,6 +57,7 @@ namespace LowoUN.Module.UI {
             topLayer = uIRootView.TopLayer;
             midLayer = uIRootView.MidLayer;
             floorLayer = uIRootView.FloorLayer;
+            hudLayer = uIRootView.HUDRoot;
 
             cb_init.Invoke();
         }
