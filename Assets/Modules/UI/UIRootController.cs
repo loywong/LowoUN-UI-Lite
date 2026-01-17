@@ -25,6 +25,7 @@ namespace LowoUN.Module.UI {
             _view = gameObject.GetComponent<UIRootView> ();
 
             HideDownloading ();
+            UIManager.Self.RootView = _view;
         }
 
         // /// <summary>
@@ -34,13 +35,6 @@ namespace LowoUN.Module.UI {
         // {
         //     _view.ShowToast(txt);
         // }
-
-        /// <summary>
-        /// 获取UIRoot
-        /// </summary>
-        public UIRootView GetUIRootView () {
-            return _view;
-        }
 
         public void ShowWaitingUI (bool isUsrClickUI) {
             // Debug.LogError("UIRootController -- ShowWaitingUI");

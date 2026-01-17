@@ -27,7 +27,6 @@ public class Entry : MonoBehaviour {
                 // InputData.Init ();
 
                 // TEST loading some ui panels
-                var uiRoot = UIRootController.Self.GetUIRootView ();
                 // 1 overlay ui
                 // --- top layer (waitingUI, checkDlgUI)
                 // --- middle layer (PopUI)

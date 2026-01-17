@@ -22,6 +22,7 @@ namespace LowoUN.Module.UI {
         public Canvas _worldCanvas { private set; get; }
         public void SetWorldCanvas (Canvas can) { _worldCanvas = can; }
 
+        public UIRootView RootView;
         public Canvas _screenCanvas;
         Transform hudLayer;
         Transform floorLayer;
@@ -44,22 +45,20 @@ namespace LowoUN.Module.UI {
         private Dictionary<string, UIViewBase> viewMap = new Dictionary<string, UIViewBase> ();
         // private UITipManager tipManager;
 
-        
         public void Init (Action cb_init) {
             Debug.Log ("------ UIManager --> Init");
-            UIRootController.Self.Init();
+            UIRootController.Self.Init ();
             Debug.Log ("UIRootController.Self.Init Over.");
 
             // if (tipManager == null)
             //     tipManager = new UITipManager();
 
-            var uIRootView = UIRootController.Self.GetUIRootView ();
-            topLayer = uIRootView.TopLayer;
-            midLayer = uIRootView.MidLayer;
-            floorLayer = uIRootView.FloorLayer;
-            hudLayer = uIRootView.HUDRoot;
+            topLayer = RootView.TopLayer;
+            midLayer = RootView.MidLayer;
+            floorLayer = RootView.FloorLayer;
+            hudLayer = RootView.HUDRoot;
 
-            cb_init.Invoke();
+            cb_init.Invoke ();
         }
 
         public bool CheckIfExist (string view_name) {
