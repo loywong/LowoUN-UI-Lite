@@ -20,26 +20,27 @@ public class Entry : MonoBehaviour {
     IEnumerator Init () {
         yield return null;
 
-        UIRootController.Self.Init (() => {
-            Debug.Log ("UIRootController.Self.Init Over.");
+        // UIRootController.Self.Init (() => {
+        //     Debug.Log ("UIRootController.Self.Init Over.");
 
-            UIManager.Self.Init ();
-            // InputData.Init ();
+            UIManager.Self.Init (()=>{
+                // InputData.Init ();
 
-            // TEST loading some ui panels
-            var uiRoot = UIRootController.Self.GetUIRootView ();
-            // 1 overlay ui
-            // --- top layer (waitingUI, checkDlgUI)
-            // --- middle layer (PopUI)
-            // --- floor layer (HudUI)
-            UIManager.Self.CreateUIViewAsync<UISample_Hud> ("UISample_Hud", uiRoot.FloorLayer);
-            // UIManager.Self.CreateUIViewAsync<UISample_Popup_FullScreen> ("UISample_Popup_FullScreen", UIManager.Self._camCanvas.transform); //uiRoot.MidLayer
+                // TEST loading some ui panels
+                var uiRoot = UIRootController.Self.GetUIRootView ();
+                // 1 overlay ui
+                // --- top layer (waitingUI, checkDlgUI)
+                // --- middle layer (PopUI)
+                // --- floor layer (HudUI)
+                UIManager.Self.CreateUIViewAsync<UISample_Hud> ("UISample_Hud", uiRoot.FloorLayer);
+                // UIManager.Self.CreateUIViewAsync<UISample_Popup_FullScreen> ("UISample_Popup_FullScreen", UIManager.Self._camCanvas.transform); //uiRoot.MidLayer
 
-            // 2 camera UI (PopUI)
-            UIManager.Self.CreateUIViewAsync<UISample_Popup> ("UISample_Popup", UIManager.Self._camCanvas.transform); //uiRoot.MidLayer
+                // 2 camera UI (PopUI)
+                UIManager.Self.CreateUIViewAsync<UISample_Popup> ("UISample_Popup", UIManager.Self._camCanvas.transform); //uiRoot.MidLayer
 
-            // 3 world ui 
-        });
+                // 3 world ui 
+            });
+        // });
 
     }
 

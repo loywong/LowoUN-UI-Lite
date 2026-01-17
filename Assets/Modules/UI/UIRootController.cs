@@ -1,4 +1,3 @@
-using System;
 using LowoUN.Util;
 using UnityEngine;
 
@@ -6,14 +5,7 @@ namespace LowoUN.Module.UI {
     public class UIRootController : SingletonSimple<UIRootController> {
         UIRootView _view;
 
-        Action initEndCallback;
-
-        public void Init (Action initEndCallback) {
-            this.initEndCallback = initEndCallback;
-            Start ();
-        }
-
-        public void Start () {
+        public void Init () {
             GameObject h = Resources.Load<GameObject> ("UIRootView");
             // ResUtils.LoadAsync_DontDestroy<GameObject>("UIRootView", (loadingHandler,h) =>
             // {
@@ -33,8 +25,6 @@ namespace LowoUN.Module.UI {
             _view = gameObject.GetComponent<UIRootView> ();
 
             HideDownloading ();
-
-            this.initEndCallback.Invoke ();
         }
 
         // /// <summary>
@@ -53,16 +43,16 @@ namespace LowoUN.Module.UI {
         }
 
         public void ShowWaitingUI (bool isUsrClickUI) {
-            // Debug.LogError("UIRootPresenter -- ShowWaitingUI");
+            // Debug.LogError("UIRootController -- ShowWaitingUI");
             _view.ShowWaitingUI (isUsrClickUI);
         }
         public void HideWaitingUI () {
-            // Debug.LogError("UIRootPresenter -- HideWaitingUI");
+            // Debug.LogError("UIRootController -- HideWaitingUI");
             _view.HideWaitingUI ();
         }
 
         public void ForceHideWaitingUI () {
-            // Debug.LogError("UIRootPresenter -- ForceHideWaitingUI");
+            // Debug.LogError("UIRootController -- ForceHideWaitingUI");
 #if !SRV_ALIYUN_PRODUCTION
             Debug.Log ("[!SRV_ALIYUN_PRODUCTION] ------ ForceHideWaitingUI");
 #endif
@@ -72,7 +62,6 @@ namespace LowoUN.Module.UI {
             _view.TEST_UnloadWaitingUI ();
         }
 
-        // asset downloading
         public void ShowDownloading () {
             _view.con_downloading.gameObject.SetActive (true);
         }

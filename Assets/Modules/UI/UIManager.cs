@@ -42,8 +42,12 @@ namespace LowoUN.Module.UI {
         private Dictionary<string, UIViewBase> viewMap = new Dictionary<string, UIViewBase> ();
         // private UITipManager tipManager;
 
-        public void Init () {
+        
+        public void Init (Action cb_init) {
             Debug.Log ("------ UIManager --> Init");
+            UIRootController.Self.Init();
+            Debug.Log ("UIRootController.Self.Init Over.");
+
             // if (tipManager == null)
             //     tipManager = new UITipManager();
 
@@ -51,6 +55,8 @@ namespace LowoUN.Module.UI {
             topLayer = uIRootView.TopLayer;
             midLayer = uIRootView.MidLayer;
             floorLayer = uIRootView.FloorLayer;
+
+            cb_init.Invoke();
         }
 
         public bool CheckIfExist (string view_name) {
