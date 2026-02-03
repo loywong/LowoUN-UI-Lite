@@ -4,22 +4,27 @@ using UnityEngine.UI;
 
 namespace LowoUN.Module.UI {
     public class UIRootView : UIViewBase {
-        [Header ("UILayers层")]
-        [SerializeField]
+        [Header ("UILayers层"), SerializeField]
         Transform _UILayers;
-        [Header ("顶层UI")]
-        [SerializeField]
-        Transform _topLayer;
-        [SerializeField]
-        [Header ("中层UI")]
-        Transform midLayer;
-        [SerializeField]
-        [Header ("底层UI")]
-        Transform floorLayer;
-        [SerializeField]
-        [Header ("HUDRoot")]
+
+        // 场景常驻Hud
+        [Header ("HUDRoot"), SerializeField]
         Transform hudRoot;
-        
+        // hud额外层，比如，各种击杀提示
+        [Header ("底层UI"), SerializeField]
+        Transform floorLayer;
+        // 二级弹窗
+        [Header ("中层UI"), SerializeField]
+        Transform midLayer;
+
+        // 专门用来放置tip类型的弹窗，一些toastUI，通用获得物品的弹窗，面向业务层的
+        [Header ("Tip层UI"), SerializeField]
+        Transform tipLayer;
+
+        // waiting ui， checkDlg ui 都是最顶层的提示，框架层的，需要最优先处理
+        [Header ("顶层UI"), SerializeField]
+        Transform _topLayer;
+
         // [SerializeField]
         // [Header("Toast提示信息节点")]
         // GameObject toast;
