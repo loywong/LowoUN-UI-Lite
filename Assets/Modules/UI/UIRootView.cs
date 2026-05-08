@@ -7,6 +7,9 @@ namespace LowoUN.Module.UI {
         [Header ("UILayers层"), SerializeField]
         Transform _UILayers;
 
+        // 和3D场景 紧密相关的UI提示，比如玩家姓名
+        [Header("Above3D"),SerializeField]
+        Transform above3dLayer;
         // 场景常驻Hud
         [Header ("HUDRoot"), SerializeField]
         Transform hudRoot;
@@ -25,15 +28,6 @@ namespace LowoUN.Module.UI {
         [Header ("顶层UI"), SerializeField]
         Transform _topLayer;
 
-        // [SerializeField]
-        // [Header("Toast提示信息节点")]
-        // GameObject toast;
-        // [SerializeField]
-        // [Header("Toast提示信息文字")]
-        // TextMeshProUGUI toastText;
-        // [Header("确认消息框")]
-        // public GameObject msgbox;
-
         // [Header("等待界面")]
         // public GameObject waitingPanel;
         // [SerializeField] private GameObject waiting4EventMask;
@@ -49,10 +43,10 @@ namespace LowoUN.Module.UI {
         public Transform TopLayer => _topLayer;
 
         public Transform MidLayer => midLayer;
-
+        public Transform TipLayer => tipLayer;
         public Transform FloorLayer => floorLayer;
-
         public Transform HUDRoot => hudRoot;
+        public Transform Above3D => above3dLayer;
 
         public SceneLoadingView SceneLoadingView => sceneLoadingView;
 
